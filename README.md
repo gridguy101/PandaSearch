@@ -25,7 +25,7 @@ cd sheetsearch
 2. Install the required libraries:
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ## Usage
