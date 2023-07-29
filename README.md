@@ -7,8 +7,6 @@ PandaSearch is a command-line tool written in Python that searches through multi
 - Search multiple Google Sheets simultaneously using asynchronous requests for efficiency.
 - Improved search functionality: case-insensitive search, and handles plurals (e.g., searching for "dunk" will also match "dunks").
 - Nicely formatted console output using the `rich` library.
-- The search term is input interactively with a prompt.
-- ASCII art logo displayed at the start of each run.
 - Reads the list of websites from a file, making it easy to manage the sheets you want to search.
 
 ## Requirements
@@ -32,7 +30,7 @@ pip install -r requirements.txt
 
 ## Usage
 
-1. Add the URLs of the Google Sheets you want to search in the `websites.txt` file, one URL per line.
+1. Add or remove the URLs of the Google Sheets you want to search in the `websites.txt` file, one URL per line.
 
 2. Run the script:
 
