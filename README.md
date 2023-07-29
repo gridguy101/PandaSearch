@@ -12,6 +12,7 @@ PandaSearch is a command-line tool written in Python that searches through multi
 ## Requirements
 
 - Python 3.7+
+- Terminal that supports hyperlinks (GNOME terminal, iTerm2, xterm, and many more)
 
 ## Installation
 
