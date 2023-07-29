@@ -7,7 +7,6 @@ from rich.console import Console
 from rich.table import Table
 from rich.theme import Theme
 
-# Create a custom theme that sets the 'default' style for all elements.
 custom_theme = Theme({
     "repr.number": "default",
     "repr.str": "default",
@@ -16,7 +15,6 @@ custom_theme = Theme({
     "log.message": "default"
 })
 
-# Pass the custom theme to the Console constructor.
 console = Console(theme=custom_theme)
 
 def is_link(text):
@@ -25,7 +23,6 @@ def is_link(text):
     return bool(re.match(pattern, text))
 
 def is_price(text):
-    # Regular expression to check if the text contains currency symbols.
     pattern = r'[\$¥€£]'
     return bool(re.search(pattern, text))
 
@@ -53,7 +50,6 @@ async def search_website(session, url, target_text):
                         console.print(f"[bold]{cell_text}[/bold] found on [link={url}]{title}[/link].")
                         console.print("-" * os.get_terminal_size().columns)
 
-        # Check if no items were found
         if not search_results:
             console.print(f"No items found on [link={url}]{title}[/link].")
             console.print("-" * os.get_terminal_size().columns)
@@ -67,7 +63,6 @@ async def search_website(session, url, target_text):
 console = Console(theme=custom_theme)
 ascii_console = Console()
 async def main():
-    # ASCII Art
     ascii_art = """
       ___              _      ___                  _    
      | _ \\__ _ _ _  __| |__ _/ __| ___ __ _ _ _ __| |_  
