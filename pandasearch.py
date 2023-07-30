@@ -23,7 +23,7 @@ def is_link(text):
     return bool(re.match(pattern, text))
 
 def is_price(text):
-    pattern = r'[\$¥€£]'
+    pattern = r'[$\u00a5\u20ac\u00a3]'
     return bool(re.search(pattern, text))
 
 async def fetch(session, url):
@@ -35,7 +35,7 @@ async def search_website(session, url, target_text):
         response = await fetch(session, url)
         soup = BeautifulSoup(response, 'lxml')
         table = soup.find('table')
-        title = soup.title.text if soup.title else url
+        title = soup.title.text.replace(" - Google Drive", "") if soup.title else url
 
         search_results = []
 
@@ -93,15 +93,14 @@ async def main():
         console.print("No matching results found.")
         return
 
-    table = Table(show_header=True, header_style="bold magenta")
+    table = Table(show_header=True, header_style="bold magenta", show_lines=True)
     table.add_column('Cell Value')
     table.add_column('Website Link')
 
     for cell_value, title, url in all_search_results:
-        table.add_row(cell_value, f"[link={url}]{title}[/link]")
+        table.add_row(cell_value, f"[link={url}]{title.replace(' - Google Drive', '')}[/link]")
 
     console.print(table)
 
 if __name__ == "__main__":
     asyncio.run(main())
-
