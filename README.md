@@ -8,6 +8,7 @@ PandaSearch is a command-line tool written in Python that searches through multi
 - Improved search functionality: case-insensitive search, and handles plurals (e.g., searching for "dunk" will also match "dunks").
 - Nicely formatted console output using the `rich` library.
 - Reads the list of websites from a file, making it easy to manage the sheets you want to search.
+- Included example website list with **45+ spreadsheets**
 
 ## Requirements
 
